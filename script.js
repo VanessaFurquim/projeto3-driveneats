@@ -65,10 +65,9 @@ function selectDessert (dessertName) {
 }
 
 
-// Funções do botão de fechar pedido.
+// Função do botão de fechar pedido.
 function closeOrder () {
     if (dishIsSelected === true && drinkIsSelected === true && dessertIsSelected === true) {
-        console.log("oi")
         const enableButton = document.querySelector(".button-shape");
         enableButton.classList.add("enabledButton");
         enableButton.disabled = false;
@@ -77,15 +76,16 @@ function closeOrder () {
     }
 }
 
+// Função para envio do pedido por WhatsApp.
 function whatsappMessage () {
     chosenDish = document.querySelector(".dish .selected h4").innerHTML;
-    dishPrice = document.querySelector(".dish .selected h6").innerHTML.replace("R$","").replace(",",".");;
+    dishPrice = document.querySelector(".dish .selected h6").innerHTML.replace("R$","").replace(",",".");
     chosenDrink = document.querySelector(".drink .selected h4").innerHTML;
-    drinkPrice = document.querySelector(".drink .selected h6").innerHTML.replace("R$","").replace(",",".");;
+    drinkPrice = document.querySelector(".drink .selected h6").innerHTML.replace("R$","").replace(",",".");
     chosenDessert = document.querySelector(".dessert .selected h4").innerHTML;
-    dessertPrice = document.querySelector(".dessert .selected h6").innerHTML.replace("R$","").replace(",",".");;
+    dessertPrice = document.querySelector(".dessert .selected h6").innerHTML.replace("R$","").replace(",",".");
 
-    totalAmount = parseInt((dishPrice) + parseInt(drinkPrice) + parseInt(dessertPrice));
+    totalAmount = parseInt(dishPrice) + parseInt(drinkPrice) + parseInt(dessertPrice);
 
     let message = `Olá, gostaria de fazer o pedido:
                    - Prato: ${chosenDish}
